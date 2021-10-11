@@ -15,7 +15,6 @@ export default function App () {
         .get('http://localhost:5000/api/movies') 
         .then(response => {
           setMovieList(response.data)
-          // console.log(response.data);
         })
         .catch(error => {
           console.error('Server Error', error);
@@ -30,19 +29,15 @@ export default function App () {
 
   return (
       <div>
-
-
         <SavedList list={[ /* This is stretch */]} />
 
         <Route exact path='/'>
           <MovieList movies={movieList}/>
         </Route>
 
-        {/* Grab the id from whatever is typed in */}
         <Route path={'/movies/:id'}>
           <Movie movies={movieList}/>
         </Route>
-      
       </div>
   );
 }
